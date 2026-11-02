@@ -25,6 +25,11 @@ classifiers = [
 ]
 dependencies = []
 
+[project.urls]
+Homepage = "https://github.com/112345brian/palfit"
+Repository = "https://github.com/112345brian/palfit"
+Issues = "https://github.com/112345brian/palfit/issues"
+
 [project.optional-dependencies]
 test = ["pytest>=8"]
 # Dev-only: compiled reference implementation used for the parity tests.

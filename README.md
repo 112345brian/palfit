@@ -4,6 +4,8 @@ Fit a **physical activity level (PAL)**, and from it a maintenance-calorie estim
 
 The forward model is a port of the R package [INSP-RH/bw](https://github.com/INSP-RH/bw) (MIT). The compiled PyPI package `hallmodel` offers the same forward model; **neither it nor `bw` fits PAL to data**. That inversion is what this package adds. See `NOTICE`.
 
+Source and issues: https://github.com/112345brian/palfit
+
 ## Install
 
 ```bash
@@ -76,7 +78,7 @@ pytest
 
 ## Before release
 
-Run `python tools/check_release.py`; it fails while any placeholder marker remains in `LICENSE`, `NOTICE`, `README.md` or `pyproject.toml`, or if `authors` is missing. Re-check that the distribution name is unclaimed on PyPI immediately before uploading. No repository URL is set in the metadata yet.
+Run `python tools/check_release.py`; it fails while any placeholder marker remains in `LICENSE`, `NOTICE`, `README.md` or `pyproject.toml`, or if `authors` is missing. Re-check that the distribution name is unclaimed on PyPI immediately before uploading.
 
 ## Licence
 
