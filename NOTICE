@@ -1,0 +1,44 @@
+NOTICE / ATTRIBUTION
+
+This package is a derivative work. Its model code (src/palfit/_model.py) is a
+Python port of the adult model in the R package INSP-RH/bw
+(https://github.com/INSP-RH/bw), file src/adult_weight.cpp. Equations, constants,
+and the order of operations are transcribed from that file; they were not re-derived.
+
+Upstream copyright and licence
+  Copyright (c) 2018 Instituto Nacional de Salud Pública (México)
+  Licensed under the MIT licence (DESCRIPTION: "MIT + file LICENSE"; the full MIT
+  text is in the header of the upstream C++ files). The MIT text is reproduced in
+  this package's LICENSE file.
+  Upstream authors named in the source headers: Dalia Camacho-García-Formentí,
+  Rodrigo Zepeda-Tello.
+
+What is original here (not in bw)
+  - The inversion (fit_pal): golden-section search over PAL against observed weights.
+  - Bound-hit flags, input validation, the all-missing-weights guard.
+  - The guard that drops the carbohydrate/sodium term of the ECF equation when the
+    baseline-day carbohydrate intake is zero (upstream returns NaN there).
+  - Tests, including parity tests against the `hallmodel` package (dev-only).
+
+What is not ported
+  - The child model, sodium-driven ECF changes (the sodium input is fixed at zero
+    change), multi-individual matrices, intake interpolation (energy_build), and
+    non-daily time steps.
+
+Scientific sources of the model (as cited in the upstream source header)
+  Chow, C.C. and Hall, K.D. (2008). The Dynamics of Human Body Weight Change.
+    PLoS Comput Biol 4(3): e1000045.
+  Hall, K.D. (2010). Predicting Metabolic Adaptation, Body Weight Change, and Energy
+    Intake in Humans. Am J Physiol Endocrinol Metab 298(3): E449-E466.
+  Hall, K.D. and Jordan, P.N. (2008). Modeling Weight-Loss Maintenance to Help
+    Prevent Body Weight Regain. Am J Clin Nutr 88(6): 1495-1503.
+  Hall, K.D., Sacks, G., Chandramohan, D., Chow, C.C., Wang, Y.C., Gortmaker, S.L.,
+    Swinburn, B.A. (2011). Quantification of the Effect of Energy Imbalance on
+    Bodyweight. The Lancet 378(9793): 826-837.
+  Mifflin, M.D., St Jeor, S.T., Hill, L.A., Scott, B.J., Daugherty, S.A., Koh, Y.O.
+    (1990). A New Predictive Equation for Resting Energy Expenditure in Healthy
+    Individuals. Am J Clin Nutr 51(2): 241-247.
+
+Related software (used only as a test-time reference, never vendored)
+  `hallmodel` on PyPI (compiled C++ binding of the same upstream model, MIT).
+  https://github.com/ChocoTonic/hallmodel-py
